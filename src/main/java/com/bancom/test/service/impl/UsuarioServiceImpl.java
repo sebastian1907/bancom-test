@@ -1,7 +1,9 @@
 package com.bancom.test.service.impl;
 
 import com.bancom.test.model.Usuario;
+import com.bancom.test.model.Post;
 import com.bancom.test.repository.UsuarioRepository;
+import com.bancom.test.repository.PostRepository;
 import com.bancom.test.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
