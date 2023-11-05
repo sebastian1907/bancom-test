@@ -15,6 +15,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	PostRepository postRepository;
 
     @Override
     public List<Usuario> getAllUsers(){
@@ -50,6 +53,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         if (foundUser == null){
             throw new RuntimeException("El usuario con id "+ id + " no existe");
+        }
+		
+		List<Post> foundPosts = postRepository.findByUsuario(foundUser);
+		
+		if (foundPosts.size() > 0){
+            throw new RuntimeException("El usuario posee posts existentes.");
         }
 
         usuarioRepository.delete(foundUser);
